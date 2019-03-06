@@ -53,12 +53,12 @@ export default {
             "required": true,
             "message": "Name is required"
           },
-          "layoutClass":"col-md-12"
+          "layoutClass":"col-lg-12"
         }
-        this.formData.schema.register.properties.pets.columns = Object.assign({}, this.formData.schema.register.properties.pets.columns); 
+        this.formData.schema.register.properties.pets.columns = Object.assign({}, this.formData.schema.register.properties.pets.columns);
       }else{
         delete this.formData.schema.register.properties.pets.columns.name;
-        this.formData.schema.register.properties.pets.columns = Object.assign({}, this.formData.schema.register.properties.pets.columns); 
+        this.formData.schema.register.properties.pets.columns = Object.assign({}, this.formData.schema.register.properties.pets.columns);
       }
     }
   },
@@ -72,18 +72,18 @@ export default {
                 "properties": {
                     "sample" : {
                       "type" : "TheObject",
-                      "title" : "Sample",
+                      "title" : "",
                       "columns" : {
                         "pets": {
                           "type": "TheTable",
-                          "title": "Pets",
+                          "title": "",
                           "columns": {
                             "type": {
                               "type": "TheSelect",
                               "title": "Type",
                               "propertyOrder": 1,
                               "controlOptions" : {
-                                
+
                               },
                               "options": [
                                 {
@@ -111,19 +111,27 @@ export default {
                               "type": "TheRadio",
                               "title": "Gender",
                               "propertyOrder": 3,
-                              "options": [
-                                {
-                                  "value": 1,
-                                  "label": "Male"
-                                },
-                                {
-                                  "value": 2,
-                                  "label": "Female"
+                              "toggleSwitch": {
+                                "width": 65,
+                                "labels": {
+                                  "checked": "Male",
+                                  "unchecked": "Female"
                                 }
-                              ],
+                              },
+                              "options": [],
+                              // "options": [
+                              //   {
+                              //     "value": true,
+                              //     "label": "Male"
+                              //   },
+                              //   {
+                              //     "value": false,
+                              //     "label": "Female"
+                              //   }
+                              // ],
                               "callBackEvent" : this.genderCallback,
                               "rules": {
-                                "type": "number",
+                                "type": "boolean",
                                 "required": true,
                                 "message": "The gender cannot be empty"
                               }
@@ -171,7 +179,7 @@ export default {
                                     "required": true,
                                     "message": "This field is required"
                                 }],
-                                "layoutClass" : "col-md-12",
+                                "layoutClass" : "col-lg-12",
                                 "controlOptions" : {
                                   "isMD" : true,
                                 },
@@ -184,13 +192,13 @@ export default {
                                   "type": "TheInput",
                                   "title": "Name",
                                   "rules": {},
-                                  "layoutClass" : "col-md-6",
+                                  "layoutClass" : "col-lg-12",
                                 },
                                 "products" : {
                                   "type": "TheInput",
                                   "title": "Products",
                                   "rules": {},
-                                  "layoutClass" : "col-md-6",
+                                  "layoutClass" : "col-lg-12",
                                 },
                               },
                               "controlOptions" : {
@@ -201,8 +209,7 @@ export default {
                           "addDefault": {
                             "type": "",
                             "name": "",
-                            "gender": "",
-                            "interests": []
+                            "gender": ""
                           },
                           "addText": "+ Add Pet",
                           "rules": {
@@ -214,9 +221,10 @@ export default {
                             "isTab" : true,
                             "tabTitle" : "Pet",
                           },
-                          "layoutClass" : "col-md-12",
+                          "layoutClass" : "col-lg-12",
                         }
-                      }
+                      },
+                      "layoutClass" : "col-lg-12"
                     }
                 },
                 "controlOptions" : {
@@ -230,7 +238,7 @@ export default {
                   "pets": [{
                     "type": "",
                     "name": "",
-                    "gender": 1,
+                    "gender": true,
                     "interests": [],
                     "roles" : ["Hello", "There"],
                     "description" : "",

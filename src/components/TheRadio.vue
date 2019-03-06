@@ -10,12 +10,13 @@
         <p class="mb-0">{{ !this.noLabel ? this.title : '' }}</p>
         <small>{{this.noDescription ? '' : this.controlOptions.description}}</small>
       </template>
-      <b-form-radio-group v-model="msg" :checked="msg" @change="handleChange">
+      <toggle-button :value="false" v-model="msg" v-if="options.length === 0" :labels="toggleSwitch.labels" :width="toggleSwitch.width" @change="handleChange"/>
+      <b-form-radio-group v-if="options.length > 0" v-model="msg" :checked="msg" @change="handleChange">
         <b-form-radio :value="item.value" v-for="item in options" :key="item.value">{{item.label}}</b-form-radio>
       </b-form-radio-group>
       <small class="error text-danger" v-if="showValidate">{{validateInfo}}</small>
     </b-form-group>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -26,15 +27,20 @@ import { EventBus } from '../utils'
 //mixin
 import Base from '../mixins/base';
 import Validate from '../mixins/validate';
+import { ToggleButton } from 'vue-js-toggle-button'
+
 
 export default {
   name: 'TheRadio',
   mixins: [ Validate, Base ],
-  props: ["options", 'title', 'objKey', 'objVal', 'noLabel', 'rules', 'validateObj', 'keyArr', 'parentName', 'callBackEvent', 'controlOptions', 'uniqueKey'],
+  props: ['options', 'title', 'objKey', 'objVal', 'noLabel', 'rules', 'validateObj', 'keyArr', 'parentName', 'callBackEvent', 'controlOptions', 'uniqueKey', 'toggleSwitch'],
   methods: {
     handleChange() {
       this.asyncValidate();
     }
+  },
+  components: {
+    ToggleButton
   },
   data () {
     return {
