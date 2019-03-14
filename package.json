@@ -75,9 +75,9 @@
     "not ie <= 8"
   ],
   "bugs": {
-    "url": "https://github.com/karan3112/vue-awesome-form/issues"
+    "url": "https://github.com/pavitardua/vue-awesome-form/issues"
   },
-  "homepage": "https://github.com/karan3112/vue-awesome-form#readme",
+  "homepage": "https://github.com/pavitardua/vue-awesome-form#readme",
   "directories": {
     "example": "example"
   }
