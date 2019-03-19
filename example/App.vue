@@ -212,6 +212,7 @@ export default {
                             "gender": ""
                           },
                           "addText": "+ Add Pet",
+                          "readOnlyText": "Pets",
                           "rules": {
                             "type": "array",
                             "required": true,
@@ -219,6 +220,7 @@ export default {
                           },
                           "controlOptions" : {
                             "isTab" : true,
+                            "sortable" : true,
                             "tabTitle" : "Pet",
                           },
                           "layoutClass" : "col-lg-12",
