@@ -1,6 +1,6 @@
 {
   "name": "vue-awesome-form-enhanced",
-  "version": "1.0.91",
+  "version": "1.0.92",
   "description": "A schema-based form generator component for Vue.js",
   "author": "pavitardua <pavitar.dua@gmail.com>",
   "private": false,
@@ -24,7 +24,8 @@
     "vue-js-toggle-button": "^1.3.2",
     "vue-markdown": "^2.2.4",
     "vue-simplemde": "^0.4.8",
-    "vue-swatches": "^1.0.3"
+    "vue-swatches": "^1.0.3",
+    "vuedraggable": "^2.19.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -75,9 +76,9 @@
     "not ie <= 8"
   ],
   "bugs": {
-    "url": "https://github.com/karan3112/vue-awesome-form/issues"
+    "url": "https://github.com/pavitardua/vue-awesome-form/issues"
   },
-  "homepage": "https://github.com/karan3112/vue-awesome-form#readme",
+  "homepage": "https://github.com/pavitardua/vue-awesome-form#readme",
   "directories": {
     "example": "example"
   }
