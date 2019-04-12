@@ -4,7 +4,7 @@
       <p class="form-value" v-if="theFormat === 'textarea' && controlOptions.isMD" >
         <vue-markdown class="markdown">{{msg}}</vue-markdown>
       </p>
-      <p v-else class="form-value">{{ typeof msg !== 'undefined' ? msg.toString() : '' }}</p>
+      <p v-else class="form-value">{{ this.getLabel }}</p>
     </b-form-group>
   </div>
   <div v-else>
@@ -17,7 +17,7 @@
           <div v-if="typeof(controlOptions) !== 'undefined' && controlOptions.isMD">
             <markdown-editor v-model="msg" ref="markdownEditor"></markdown-editor>
           </div>
-          <b-form-textarea 
+          <b-form-textarea
             v-else
             v-model="msg"
             :placeholder="(typeof(controlOptions) !== 'undefined' && controlOptions.placeholder) ? controlOptions.placeholder : ''"
@@ -26,10 +26,10 @@
             @blur.native="handleBlur"
             ></b-form-textarea>
       </div>
-      <b-form-input 
+      <b-form-input
           v-else
           :type="theFormat || 'text'"
-          v-model="msg" 
+          v-model="msg"
           @blur.native="handleBlur"
       ></b-form-input>
       <slot></slot>
@@ -51,10 +51,14 @@ import VueMarkdown from 'vue-markdown'
 export default {
   name: 'TheInput',
   mixins: [ Validate, Base ],
-  props: ['title', 'objKey', 'objVal', 'noLabel', 'rules', 'validateObj', 'keyArr', 'parentName', 'theFormat', "controlOptions", "uniqueKey"],
+  props: ['title', 'objKey', 'objVal', 'noLabel', 'rules', 'validateObj', 'keyArr', 'parentName', 'theFormat', 'controlOptions', 'callBackEvent', 'uniqueKey'],
   methods: {
     handleBlur() {
       this.validate();
+      if(typeof(this.callBackEvent) === 'function')
+      {
+        this.callBackEvent(this.objKey, this.objVal, true, this.uniqueKey);
+      }
     }
   },
   data () {
@@ -71,8 +75,17 @@ export default {
   computed : {
     noDescription(){
       return !(typeof this.controlOptions !== 'undefined' && this.controlOptions.hasOwnProperty('description'))
+    },
+    getLabel() {
+      return (this.msg) ? this.msg : '';
     }
   },
+  created(){
+    if(typeof(this.callBackEvent) === 'function')
+    {
+      this.callBackEvent(this.objKey, this.objVal, true, this.uniqueKey);
+    }
+  }
 }
 </script>
 
