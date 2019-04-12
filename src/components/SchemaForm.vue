@@ -67,6 +67,7 @@ export default {
       return cloneDeep(source);
     },
     setFormData(payload) {
+      // console.log('payload', payload)
         const { key, value } = payload;
         key.reduce((pre, cur, curIndex, arr) => {
             // 如果是最后一项，就是我们要改变的字段
@@ -86,7 +87,7 @@ export default {
       let len = this.fields.length;
       this.fields.forEach((field, index) => {
         field.validate().then(res => {
-          console.log(res);
+          // console.log(res);
           const { title, status } = res;
           if(!status) {
             err = true;
