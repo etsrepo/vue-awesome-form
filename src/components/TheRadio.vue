@@ -1,7 +1,7 @@
 <template>
   <div v-if="typeof(controlOptions) !== 'undefined' && controlOptions.readOnly">
     <b-form-group :label="!noLabel ? title : ''">
-      <p class="form-value">{{ msg.toString() }}</p>
+      <p class="form-value">{{ this.getLabel }}</p>
     </b-form-group>
   </div>
   <div v-else>
@@ -52,6 +52,9 @@ export default {
   computed : {
     noDescription(){
       return !(typeof this.controlOptions !== 'undefined' && this.controlOptions.hasOwnProperty('description'))
+    },
+    getLabel() {
+      return (this.msg) ? this.msg : '';
     }
   },
   created(){

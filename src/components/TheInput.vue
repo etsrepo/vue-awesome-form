@@ -2,7 +2,7 @@
   <div v-if="typeof(controlOptions) !== 'undefined' && controlOptions.readOnly">
     <b-form-group :label="!noLabel ? title : ''">
       <p class="form-value" v-if="theFormat === 'textarea' && controlOptions.isMD" >
-        <vue-markdown class="markdown">{{msg}}</vue-markdown>
+        <vue-markdown class="markdown">{{ this.getLabel }}</vue-markdown>
       </p>
       <p v-else class="form-value">{{ this.getLabel }}</p>
     </b-form-group>
