@@ -81,6 +81,7 @@ export default {
     }
   },
   created(){
+    // console.log('input created', JSON.stringify(this.objKey),' k:v ', this.objVal)
     if(typeof(this.callBackEvent) === 'function')
     {
       this.callBackEvent(this.objKey, this.objVal, true, this.uniqueKey);

@@ -54,7 +54,7 @@ export default {
                 validator.validate({name: this.msg}, (err, fields) => {
                     let state = !err ? 'success' : 'error';
                     let msg = err ? err[0].message : '';
-                    if(this.validateObj !== undefined) {
+                    if (this.validateObj !== undefined) {
                         EventBus.$emit('on-input-validate', {
                             parentName: this.parentName,
                             keyArr: this.keyArr,
@@ -62,23 +62,20 @@ export default {
                                 validateState: state,
                                 validateMessage: msg
                             },
-                            uniqueKey: this.uniqueKey
+                            uniqueKey: this.uniqueKey,
                         })
-                    }else {
+                    } else {
                         this.validateState = state;
                         this.validateMessage = msg;
                     }
-                    if(err) {
-                        resolve({
-                            title: this.title,
-                            status: false
-                        });
-                    }else {
-                        resolve({
-                            title: this.title,
-                            status: true
-                        });
+                    const objToResolve = {
+                        title: this.title,
+                        status: true
                     }
+                    if (err) {
+                        objToResolve.status = false
+                    }
+                    resolve(objToResolve);
                 })
             })
         }

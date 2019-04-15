@@ -61,13 +61,32 @@ export default {
   },
   methods: {
     initFormData(value) {
-        this.formValue = this.cloneDeep(value);
+        this.orderProperty(this.schema).map(item=> {
+          Object.keys(item.val.properties).map(key => {
+            if (item.val.properties[key]['type'] === 'TheObject' && item.val.properties[key].hasOwnProperty('columns')
+            && Object.keys(item.val.properties[key]['columns']).length > 0) {
+              Object.keys(item.val.properties[key]['columns']).map(col => {
+                if (value[item.key] && value[item.key][key]
+                && !value[item.key][key].hasOwnProperty(col)) {
+                  // console.log('printing schema for col',JSON.stringify(item.val.properties[key]['addDefault'][col]));
+                  // console.log('check if prop ('+ col +') is present', JSON.stringify(value[item.key][key]))
+
+                  //alternative 1, set Value based on column type
+                  // value[item.key][key][col] = item.val.properties[key]['columns'][col]['type']==='TheSelect'? null : '';
+
+                  //alternative 2, set Value from addDefault
+                  value[item.key][key][col] = item.val.properties[key]['addDefault'][col];
+                }
+              })
+            }
+          })
+        })
+        this.formValue = JSON.parse(JSON.stringify(value));
     },
     cloneDeep(source) {
       return cloneDeep(source);
     },
     setFormData(payload) {
-      // console.log('payload', payload)
         const { key, value } = payload;
         key.reduce((pre, cur, curIndex, arr) => {
             // 如果是最后一项，就是我们要改变的字段
@@ -87,7 +106,6 @@ export default {
       let len = this.fields.length;
       this.fields.forEach((field, index) => {
         field.validate().then(res => {
-          // console.log(res);
           const { title, status } = res;
           if(!status) {
             err = true;
@@ -120,6 +138,11 @@ export default {
     getFormValue(){
       return this.formValue;
     }
+  },
+  watch :{
+    'schema' : function(){
+      this.initFormData(this.formValue);
+    },
   },
   data () {
     return {

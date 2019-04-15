@@ -54,7 +54,8 @@
           <b-tab style="padding:0.5rem" v-for="(col, index) in objVal" :key="index" :titleLinkClass="slugify(objVal[index][orderColumns[0].key], controlOptions.tabTitle + ' ' + (index + 1))">
             <template slot="title">
               <h3 class="tab_title font_weight600 text_small dark_color" :title="(objVal[index][orderColumns[0].key] && objVal[index][orderColumns[0].key] !== '') ? objVal[index][orderColumns[0].key] : controlOptions.tabTitle + ' ' + (index + 1)">
-                <span class="text_ellipsis">{{(objVal[index][orderColumns[0].key] && objVal[index][orderColumns[0].key] !== '') ? objVal[index][orderColumns[0].key] : controlOptions.tabTitle + ' ' + (index + 1)}}</span>
+                <span class="text_ellipsis">{{(objVal[index][orderColumns[getDisplayIndex].key] && objVal[index][orderColumns[getDisplayIndex].key] !== '') ?
+                  objVal[index][orderColumns[getDisplayIndex].key] : controlOptions.tabTitle + ' ' + (index + 1)}}</span>
               </h3>
             </template>
             <div class="tab_contnet accordion_data_outer">
@@ -193,6 +194,9 @@ export default {
   },
   props: ['title', 'objKey', 'objVal', "addDefault", "addText","readOnlyText", "columns", "noLabel", "rules", "controlOptions", "uniqueKey", "callBackEvent"],
   computed: {
+    getDisplayIndex() {
+      return (!this.controlOptions.displayIndex) ? 0 : this.controlOptions.displayIndex;
+    },
     orderColumns() {
       return orderProperty(this.columns);
     },
