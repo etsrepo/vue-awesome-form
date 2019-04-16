@@ -291,7 +291,7 @@ export default {
       validateState: '',
       validateMessage: '',
       validateArray: [],
-      tabIndex : this.objVal.length
+      tabIndex : (this.objVal) ? this.objVal.length : 0
     }
   },
   watch : {
@@ -299,14 +299,14 @@ export default {
       if(this.tabIndex === 0)
       {
         this.$nextTick(()=>{
-          this.tabIndex = this.objVal.length;
+          this.tabIndex = (this.objVal) ? this.objVal.length : 0;
         })
       }
     },
     objVal : function(){
       // console.log('order changed', JSON.stringify(this.objVal));
       this.$nextTick(()=>{
-        this.tabIndex = this.objVal.length;
+        this.tabIndex = (this.objVal) ? this.objVal.length : 0;
       })
     }
   }
