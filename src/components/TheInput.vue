@@ -57,7 +57,7 @@ export default {
       this.validate();
       if(typeof(this.callBackEvent) === 'function')
       {
-        this.callBackEvent(this.objKey, this.objVal, true, this.uniqueKey);
+        this.callBackEvent(this.objKey, this.objVal, false, this.uniqueKey);
       }
     }
   },
