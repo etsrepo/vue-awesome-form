@@ -1,4 +1,4 @@
-# vue-awesome-form-enhanced
+# @evatechsoft/vue-awesome-form
 
 > a vue form component just like json-editor
 
@@ -6,8 +6,8 @@
 
 ``` bash
 # npm/yarn
-npm install vue-awesome-form-enhanced 
-yarn add vue-awesome-form-enhanced
+npm install @evatechsoft/vue-awesome-form 
+yarn add @evatechsoft/vue-awesome-form
 ```
 
 ## Use
@@ -15,8 +15,8 @@ yarn add vue-awesome-form-enhanced
 register the component
 ``` js
 import Vue from 'vue'
-import SchemaForm from 'vue-awesome-form-enhanced'
-import 'vue-awesome-form-updated/dist/main.css'
+import SchemaForm from '@evatechsoft/vue-awesome-form'
+import '@evatechsoft/vue-awesome-form/dist/main.css'
 
 Vue.component('schema-form', SchemaForm)
 ```
@@ -32,8 +32,8 @@ use in component
 
 CDN
 ```html
-<script src="https://unpkg.com/vue-awesome-form-enhanced@latest/dist/main.js"></script>
-<script src="https://unpkg.com/vue-awesome-form-enhanced@latest/dist/main.css"></script>
+<script src="https://unpkg.com/@evatechsoft/vue-awesome-form@latest/dist/main.js"></script>
+<script src="https://unpkg.com/@evatechsoft/vue-awesome-form@latest/dist/main.css"></script>
 ```
 
 Props:

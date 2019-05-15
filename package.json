@@ -1,8 +1,8 @@
 {
-  "name": "vue-awesome-form-enhanced",
+  "name": "@evatechsoft/vue-awesome-form",
   "version": "2.0.02",
   "description": "A schema-based form generator component for Vue.js",
-  "author": "pavitardua <pavitar.dua@gmail.com>",
+  "author": "etsrepo <etsrepo@gmail.com>",
   "private": false,
   "main": "dist/main.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pavitardua/vue-awesome-form.git"
+    "url": "git+https://github.com/etsrepo/vue-awesome-form.git"
   },
   "dependencies": {
     "@johmun/vue-tags-input": "^1.4.1",
@@ -76,9 +76,9 @@
     "not ie <= 8"
   ],
   "bugs": {
-    "url": "https://github.com/pavitardua/vue-awesome-form/issues"
+    "url": "https://github.com/etsrepo/vue-awesome-form/issues"
   },
-  "homepage": "https://github.com/pavitardua/vue-awesome-form#readme",
+  "homepage": "https://github.com/etsrepo/vue-awesome-form#readme",
   "directories": {
     "example": "example"
   }
