@@ -29,6 +29,7 @@
       <b-form-input
           v-else
           :type="theFormat || 'text'"
+          :disabled="isReadOnly"
           v-model="msg"
           @blur.native="handleBlur"
       ></b-form-input>
@@ -51,7 +52,7 @@ import VueMarkdown from 'vue-markdown'
 export default {
   name: 'TheInput',
   mixins: [ Validate, Base ],
-  props: ['title', 'objKey', 'objVal', 'noLabel', 'rules', 'validateObj', 'keyArr', 'parentName', 'theFormat', 'controlOptions', 'callBackEvent', 'uniqueKey'],
+  props: ['title', 'objKey', 'objVal', 'noLabel', 'rules', 'validateObj', 'keyArr', 'parentName', 'theFormat', 'controlOptions', 'callBackEvent', 'uniqueKey', "readOnly"],
   methods: {
     handleBlur() {
       this.validate();
@@ -78,7 +79,12 @@ export default {
     },
     getLabel() {
       return (this.msg) ? this.msg : '';
-    }
+    },
+     isReadOnly() {
+       if(this.readOnly == true) {
+         return true;
+       }
+    },
   },
   created(){
     // console.log('input created', JSON.stringify(this.objKey),' k:v ', this.objVal)
