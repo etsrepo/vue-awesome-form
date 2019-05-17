@@ -1,10 +1,6 @@
 {
   "name": "@evatechsoft/vue-awesome-form",
-<<<<<<< HEAD
   "version": "2.1.01",
-=======
-  "version": "2.1.0",
->>>>>>> e2694231eabd1af8c5cb0625b25b5897c79fdb67
   "description": "A schema-based form generator component for Vue.js",
   "author": "etsrepo <etsrepo@gmail.com>",
   "private": false,
