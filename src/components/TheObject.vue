@@ -52,7 +52,7 @@ export default {
     'TheTable': () => import('./TheTable'),
     Button
   },
-  props: ['title', 'objKey', 'objVal', "addDefault", "addText", "columns", "noLabel", "rules", "controlOptions", "uniqueKey" ,"readOnly"],
+  props: ['title', 'objKey', 'objVal', "addDefault", "addText", "columns", "noLabel", "rules", "controlOptions", "uniqueKey"],
   methods: {
     getObjVal(key) {
       return this.objVal[key];
