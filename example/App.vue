@@ -204,9 +204,7 @@ export default {
       }
      
     },
-    readOnly(){
-       return {disabled: true}
-     },
+  
     getSchema(){
       let schemaToReturn = {
         "trans": {
